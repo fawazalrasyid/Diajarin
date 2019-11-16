@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "292786507335",
+    "firebase_url": "https://di-ajarin-954a7.firebaseio.com",
+    "project_id": "di-ajarin-954a7",
+    "storage_bucket": "di-ajarin-954a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292786507335:android:9bbf12168dce0512bbab62",
+        "android_client_info": {
+          "package_name": "com.diajarin.id"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292786507335-r3aseikbm69gqcb7k1pe90jd7q812lsa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diajarin.id",
+            "certificate_hash": "1a06123131e1cbed7049f5b268ac8c64a1472763"
+          }
+        },
+        {
+          "client_id": "292786507335-gm84of0ckflsl4eaade6ioc3vl412q40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqaxpUH2ts7RgMVCz61RTxRG7dCIzIA38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292786507335-gm84of0ckflsl4eaade6ioc3vl412q40.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

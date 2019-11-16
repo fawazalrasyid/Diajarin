@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_rowWeight="1"
+    android:layout_margin="5dp"
+    android:background="#F4F7FA">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_gravity="center"
+            android:layout_width="115.dp"
+            android:layout_height="110dp"
+            android:src="@drawable/cardplaceholder"/>
+
+        <TextView
+            android:id="@+id/tv_url"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:textColor="#6F6F6F"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+</FrameLayout>
