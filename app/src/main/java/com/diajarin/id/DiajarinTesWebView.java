@@ -16,14 +16,7 @@ public class DiajarinTesWebView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diajarintes_webview);
 
-        Intent intent = getIntent();
-        url = intent.getStringExtra("url");
 
-        WebView webView;
-        webView = (WebView) this.findViewById(R.id.webView);
-        webView.setWebViewClient(new WebViewClient());
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(url);
 
     }
 
