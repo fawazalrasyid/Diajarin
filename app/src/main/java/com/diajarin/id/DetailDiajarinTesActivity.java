@@ -12,7 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.diajarin.id.Models.Ads;
-import com.diajarin.id.Models.Card;
 import com.diajarin.id.Models.Tes;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -129,12 +128,8 @@ public class DetailDiajarinTesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent i = new Intent(DetailDiajarinTesActivity.this, DiajarinTesMulaiTes.class);
-                        i.putExtra("tes1url", tes.getTes1url());
-                        i.putExtra("tes2url", tes.getTes2url());
-                        i.putExtra("tes3url", tes.getTes3url());
-                        i.putExtra("tes4url", tes.getTes4url());
-                        i.putExtra("tes5url", tes.getTes5url());
                         i.putExtra("img", tes.getImg());
+                        i.putExtra("id", id);
                         startActivity(i);
 
 

@@ -1,8 +1,5 @@
 package com.diajarin.id;
 
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -11,12 +8,10 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-import com.google.firebase.database.DatabaseReference;
 
 public class VideoPlayerActivity extends YouTubeBaseActivity {
 
     String url;
-    DatabaseReference reference;
     private YouTubePlayerView youTubePlayerView;
     private YouTubePlayer.OnInitializedListener onInitializedListener;
 
@@ -49,7 +44,6 @@ public class VideoPlayerActivity extends YouTubeBaseActivity {
 
     }
 
-    // Kill Activity on Back Press
     public void onBackPressed() {
         super.onBackPressed();
         finish();

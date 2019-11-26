@@ -61,95 +61,13 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="30dp">
 
-            <FrameLayout
-                android:id="@+id/tes1"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tes"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/button_shape">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="35dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:text="Mulai Tes 1"
-                    android:textSize="16dp"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="@font/medium"/>
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/tes2"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/button_shape">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="35dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:text="Mulai Tes 2"
-                    android:textSize="16dp"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="@font/medium"/>
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/tes3"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/button_shape">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="35dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:text="Mulai Tes 3"
-                    android:textSize="16dp"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="@font/medium"/>
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/tes4"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/button_shape">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="35dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:text="Mulai Tes 4"
-                    android:textSize="16dp"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="@font/medium"/>
-
-            </FrameLayout>
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_tes"/>
 
         </LinearLayout>
 
