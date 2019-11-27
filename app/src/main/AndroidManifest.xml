@@ -18,11 +18,10 @@
         <activity android:name=".DetailDiajarinMenjadi" />
         <activity android:name=".DetailDiajarinKerja" />
         <activity android:name=".VideoPlayerActivity" />
-        <activity android:name=".DiajarinTesWebView" />
         <activity android:name=".DiajarinTesMulaiTes" />
         <activity android:name=".DiajarinTesTips" />
         <activity android:name=".DiajarinTesTanya" />
-        <activity android:name=".DetailDiajarinTesActivity" />
+        <activity android:name=".DetailDiajarinTes" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>

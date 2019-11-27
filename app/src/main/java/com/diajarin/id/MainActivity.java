@@ -3,6 +3,7 @@ package com.diajarin.id;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -14,8 +15,10 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.diajarin.id.Adapter.CardViewHolder;
+import com.diajarin.id.Adapter.SliderViewHolder;
 import com.diajarin.id.Models.Ads;
 import com.diajarin.id.Models.Card;
+import com.diajarin.id.Models.Slider;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.ads.AdRequest;
@@ -38,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseRecyclerAdapter<Card, CardViewHolder> mAdapterTes;
     private FirebaseRecyclerAdapter<Card, CardViewHolder> mAdapterKerja;
     private FirebaseRecyclerAdapter<Card, CardViewHolder> mAdapterMenjadi;
-    private RecyclerView mRecyclerTes, mRecyclerKerja, mRecyclerMenjadi;
+    private FirebaseRecyclerAdapter<Slider, SliderViewHolder> mAdapterSlider;
+    private RecyclerView mRecyclerTes, mRecyclerKerja, mRecyclerMenjadi, mRecyclerSlider;
     private RelativeLayout mManager;
     private android.widget.ImageView ImageView;
 
@@ -117,22 +121,14 @@ public class MainActivity extends AppCompatActivity {
         carouselView.setPageCount(SliderTop.length);
         carouselView.setImageListener(imageListenerTop);
 
-        carouselView = (CarouselView) findViewById(R.id.carouselView2);
-        carouselView.setPageCount(SliderBottom.length);
-        carouselView.setImageListener(imageListenerBottom);
-
-
         // Profile Info
-
         ImageView = findViewById(R.id.img_profile);
         Picasso.get()
                 .load(R.drawable.avatar)
                 .into(ImageView);
 
 
-
         // Deklarai Grid Layout
-
         mRecyclerTes = findViewById(R.id.rv_tes);
         GridLayoutManager gridLayoutTes= new GridLayoutManager(MainActivity.this, 3 );
         mRecyclerTes.setLayoutManager(gridLayoutTes);
@@ -144,6 +140,10 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerMenjadi = findViewById(R.id.rv_menjadi);
         GridLayoutManager gridLayoutMenjadi = new GridLayoutManager(MainActivity.this, 3);
         mRecyclerMenjadi.setLayoutManager(gridLayoutMenjadi);
+
+        mRecyclerSlider = findViewById(R.id.rv_slider);
+        LinearLayoutManager linearLayoutSlider = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        mRecyclerSlider.setLayoutManager(linearLayoutSlider);
 
 
         // Set up FirebaseRecyclerAdapter with the Query
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                 holder.bindToCard(model, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, DetailDiajarinTesActivity.class);
+                        Intent intent = new Intent(MainActivity.this, DetailDiajarinTes.class);
                         intent.putExtra("id", model.id);
                         startActivity(intent);
                     }
@@ -244,6 +244,35 @@ public class MainActivity extends AppCompatActivity {
         mAdapterMenjadi.notifyDataSetChanged();
         mRecyclerMenjadi.setAdapter(mAdapterMenjadi);
 
+        // Set up FirebaseRecyclerAdapter with the Query
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        Query querySlider = getQuerySlider(mDatabase);
+
+        FirebaseRecyclerOptions optionsslider = new FirebaseRecyclerOptions.Builder<Slider>()
+                .setQuery(querySlider, Slider.class)
+                .build();
+
+        mAdapterSlider = new FirebaseRecyclerAdapter<Slider, SliderViewHolder>(optionsslider) {
+
+            @Override
+            public SliderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+                return new SliderViewHolder(inflater.inflate(R.layout.item_slider, parent, false));
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull SliderViewHolder holder, int position, @NonNull final Slider model) {
+                holder.bindToCard(model, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                });
+            }
+        };
+
+        mAdapterSlider.notifyDataSetChanged();
+        mRecyclerSlider.setAdapter(mAdapterSlider);
+
     }
 
     // Image slider
@@ -251,13 +280,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void setImageForPosition(int position, android.widget.ImageView imageView) {
             imageView.setImageResource(SliderTop[position]);
-        }
-    };
-
-    ImageListener imageListenerBottom = new ImageListener() {
-        @Override
-        public void setImageForPosition(int position, android.widget.ImageView imageView) {
-            imageView.setImageResource(SliderBottom[position]);
         }
     };
 
@@ -272,6 +294,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (mAdapterMenjadi != null){
             mAdapterMenjadi.startListening();
+        }
+        if (mAdapterSlider != null){
+            mAdapterSlider.startListening();
         }
     }
 
@@ -297,7 +322,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private Query getQueryTes(DatabaseReference mDatabase){
         Query tes = mDatabase.child("Dashboard").child("diajarin_tes");
         return tes;
@@ -313,6 +337,9 @@ public class MainActivity extends AppCompatActivity {
         return kerja;
     }
 
-
+    private Query getQuerySlider(DatabaseReference mDatabase){
+        Query slider = mDatabase.child("Slider");
+        return slider;
+    }
 
 }

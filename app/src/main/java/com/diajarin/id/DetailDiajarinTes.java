@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class DetailDiajarinTesActivity extends AppCompatActivity {
+public class DetailDiajarinTes extends AppCompatActivity {
 
     private TextView OverView, Profile;
     private ImageView imgProfile;
@@ -72,7 +72,7 @@ public class DetailDiajarinTesActivity extends AppCompatActivity {
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
 
-        progressDialog = ProgressDialog.show(DetailDiajarinTesActivity.this,
+        progressDialog = ProgressDialog.show(DetailDiajarinTes.this,
                 null,
                 "Memuat...",
                 true,
@@ -103,7 +103,7 @@ public class DetailDiajarinTesActivity extends AppCompatActivity {
                 btn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(DetailDiajarinTesActivity.this, DiajarinTesTanya.class);
+                        Intent i = new Intent(DetailDiajarinTes.this, DiajarinTesTanya.class);
                         i.putExtra("tanyaurl", tes.getTanyaurl());
                         startActivity(i);
 
@@ -115,7 +115,7 @@ public class DetailDiajarinTesActivity extends AppCompatActivity {
                 btn2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(DetailDiajarinTesActivity.this, DiajarinTesTips.class);
+                        Intent i = new Intent(DetailDiajarinTes.this, DiajarinTesTips.class);
                         i.putExtra("id", tes.getId());
                         startActivity(i);
 
@@ -127,7 +127,7 @@ public class DetailDiajarinTesActivity extends AppCompatActivity {
                 btn3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(DetailDiajarinTesActivity.this, DiajarinTesMulaiTes.class);
+                        Intent i = new Intent(DetailDiajarinTes.this, DiajarinTesMulaiTes.class);
                         i.putExtra("img", tes.getImg());
                         i.putExtra("id", id);
                         startActivity(i);
